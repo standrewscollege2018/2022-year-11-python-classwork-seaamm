@@ -5,6 +5,7 @@ import random
 name_list = []
 
 print ("Welcome to the raffle Program")
+end_problem = True
 
 ask_prize = True
 
@@ -30,17 +31,19 @@ while ask_value == True:
 raffle = True
 
 
-
 while raffle == True:
-    name = input("Enter name of entrant: ")
-  
-    if name.lower() == "end":
-        if len(name_list) == 0:
-            print ("Invalid number of entrees, please try again")
-        else:
-            raffle = False
-    else:
-        name_list.append(name)
+  try:
+      name = input("Enter name of entrant: ")
+      end_problem = False
+      if name.lower() == "end":
+          if len(name_list) == 0:
+              print ("Invalid number of entrees, please try again")
+          else:
+              raffle = False
+      else:
+          name_list.append(name)
+  except IndexError:
+      print ("Please try again")
 
 number = random.randint(0, (len(name_list)))
 winner = name_list[number]
