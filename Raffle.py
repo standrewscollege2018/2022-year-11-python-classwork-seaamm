@@ -1,11 +1,18 @@
 '''Raffle Program'''
 import random
 
+# Set up list to store names
+name_list = []
+
 print ("Welcome to the raffle Program")
 
+ask_prize= True
+
 print ("What is the prize being raffled?")
+while ask_prize == True
 try:
   prize = input()
+  ask_prize = False
 except ValueError:
   print ("Please enter a valid prize")
 
@@ -18,7 +25,7 @@ except ValueError:
 
 raffle = True
 
-name_list = []
+
 
 while raffle == True:
     name = input("Enter name of entrant: ")
