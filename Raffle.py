@@ -6,22 +6,26 @@ name_list = []
 
 print ("Welcome to the raffle Program")
 
-ask_prize= True
+ask_prize = True
 
-print ("What is the prize being raffled?")
-while ask_prize == True
-try:
-  prize = input()
-  ask_prize = False
-except ValueError:
-  print ("Please enter a valid prize")
+while ask_prize == True:
+    prize = input("What is the prize being raffled? ")
+    if prize.isdigit():
+        print ("Please enter a valid prize")
+    elif prize.isalpha():
+        ask_prize = False
+    else:
+        print ("Please enter a valid prize")
 
+ask_value = True
 
 print (f"What is the value of the {prize} (do not enter the $ sign)")
-try:
-  value = int(input())
-except ValueError:
-  print ("Please enter a valid value")
+while ask_value == True:
+  try:
+    value = int(input())
+    ask_value = False
+  except ValueError:
+    print ("Please enter a valid value")
 
 raffle = True
 
@@ -29,16 +33,20 @@ raffle = True
 
 while raffle == True:
     name = input("Enter name of entrant: ")
-    
   
     if name.lower() == "end":
-        raffle = False
+        if len(name_list) == 0:
+            print ("Invalid number of entrees, please try again")
+        else:
+            raffle = False
     else:
         name_list.append(name)
 
 number = random.randint(0, (len(name_list)))
 winner = name_list[number]
 
+
+    
 print (f"There are {len(name_list)} people in the draw for the {prize}")
 
 print (f"And the winner of the {prize}, valued at ${value}, is...... {winner}")
