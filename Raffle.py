@@ -30,6 +30,7 @@ while ask_value == True:
 
 raffle = True
 
+print ("When you are finished entering entrants, type 'end'")
 
 while raffle == True:
   try:
