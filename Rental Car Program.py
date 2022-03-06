@@ -1,12 +1,31 @@
-'''Raffle Program'''
-import random
+'''Rental Car Program'''
 
-# Set up list to store names
-name_list = []
+print ("Welcome to the car rental program")
 
-#Print welcome to the raffle program, explains/instructs what to do.
-print ("Welcome to the raffle Program")
-end_problem = True
+status = 'Available'
+
+car_list = [f'Suzuki Van (2 seats) - {status}',
+            f'Toyota Corolla (4 seats) - {status}',
+            f'Honda CRV (4 seats) - {status}',
+            f'Suzuki Swift (4 seats) - {status}',
+            f'Mitsubishi Airtrek (4 seats) - {status}',
+            f'Nissan DC Ute (4 seats) - {status}',
+            f'Toyota Previa (7 seats) - {status}',
+            f'Toyota Hi Ace (12 seats) - {status}',
+            f'Toyota Hi Ace (12 seats) - {status}']
+
+print (car_list [0 - 8])
+
+available_cars = True
+
+    
+for i in range(len(car_list)):
+    print (car_list[i])
+
+
+
+
+
 
 ask_prize = True
 
