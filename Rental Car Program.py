@@ -1,7 +1,5 @@
 '''Rental Car Program'''
 
-print ("Welcome to the car rental program")
-
 status = 'Available'
 
 car_list = [f'Suzuki Van (2 seats) - {status}',
@@ -14,18 +12,28 @@ car_list = [f'Suzuki Van (2 seats) - {status}',
             f'Toyota Hi Ace (12 seats) - {status}',
             f'Toyota Hi Ace (12 seats) - {status}']
 
-print (car_list [0 - 8])
+print ("Welcome to the car rental program")
 
-available_cars = True
+ask_car = True
 
     
 for i in range(len(car_list)):
     print (car_list[i])
 
+print ("Which car would you like to borrow? ")
+while ask_car == True:
+    car = int(input())
+    try:
+        if car > 9 or car < 0:
+            print ("Please enter a valid number")
+        elif car >= 0 and car < 9:
+            ask_car = False
+        else:
+            print ("Please enter a valid number")
+    except ValueError:
+        print ("Please enter a valid number")
 
-
-
-
+print (car_list[car])
 
 ask_prize = True
 
