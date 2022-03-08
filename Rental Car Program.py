@@ -1,40 +1,58 @@
 '''Rental Car Program'''
 
-status = 'Available'
+car_list = ['Suzuki Van',
+            'Toyota Corolla',
+            'Honda CRV',
+            'Suzuki Swift',
+            'Mitsubishi Airtrek',
+            'Nissan DC Ute',
+            'Toyota Previa',
+            'Toyota Hi Ace 1',
+            'Toyota Hi Ace 2']
 
-car_list = [f'Suzuki Van (2 seats) - {status}',
-            f'Toyota Corolla (4 seats) - {status}',
-            f'Honda CRV (4 seats) - {status}',
-            f'Suzuki Swift (4 seats) - {status}',
-            f'Mitsubishi Airtrek (4 seats) - {status}',
-            f'Nissan DC Ute (4 seats) - {status}',
-            f'Toyota Previa (7 seats) - {status}',
-            f'Toyota Hi Ace (12 seats) - {status}',
-            f'Toyota Hi Ace (12 seats) - {status}']
+seat_list = ['2 seats', '4 seats', '4 seats', '4 seats', '4 seats', '4 seats', '7 seats', '12 seats', '12 seats']
+
+availability_list = ['Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available']
 
 print ("Welcome to the car rental program")
 
 ask_car = True
 
-    
+
+print ("The available cars:")
 for i in range(len(car_list)):
-    print (car_list[i])
+    print (f"{i+1}.  {car_list[i]}")
 
 print ("Which car would you like to borrow? ")
 while ask_car == True:
-    car = int(input())
     try:
-        if car > 9 or car < 0:
+        car = int(input())
+        if car > 9 or car < 1:
             print ("Please enter a valid number")
-        elif car >= 0 and car < 9:
+        elif car > 0 and car < 10:
             ask_car = False
         else:
             print ("Please enter a valid number")
     except ValueError:
-        print ("Please enter a valid number")
+            print ("Please enter a valid number")
 
-print (car_list[car])
+print ('You have booked the', (car_list[car-1]))
 
+
+    
+
+number = random.randint(0, (len(name_list)))
+winner = name_list[number]
+
+
+print ("Daily ")
+#Prints who wins the raffle
+print (f"And the winner of the {prize}, valued at ${value}, is...... {winner}")
+
+
+
+
+'''
 ask_prize = True
 
 #Catching errors if entering invalid prize variable string input
@@ -90,3 +108,4 @@ winner = name_list[number]
 print (f"There are {len(name_list)} people in the draw for the {prize}")
 #Prints who wins the raffle
 print (f"And the winner of the {prize}, valued at ${value}, is...... {winner}")
+'''
