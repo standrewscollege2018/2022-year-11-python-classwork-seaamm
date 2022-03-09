@@ -14,40 +14,65 @@ seat_list = ['2 seats', '4 seats', '4 seats', '4 seats', '4 seats', '4 seats', '
 
 availability_list = ['Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available']
 
+summary_list = []
+booking = []
+print("Type '0' in the car number input when you have finished borrowing cars")
+
 print ("Welcome to the car rental program")
 
-ask_car = True
+rental_program = True
+
+while rental_program == True:
+    ask_car = True
+
+    print ("The available cars:")
+    for i in range(len(car_list)):
+        print (f"{i+1}.  {car_list[i]}")
+        
+    print ("Which car would you like to borrow? ")
+    while ask_car == True:
+        try:
+            car = int(input())
+            if car == 0:
+                print ("Daily summary:")
+                print (summary_list)
+                ask_car = False
+            elif car > 9 or car < 0:
+                print ("Please enter a valid number")
+            elif car > 0 and car < 10:
+                ask_car = False
+                print ("Thank you")
+                
+                booking.append(car_list[car-1])
+                del car_list[car-1]
+            else:
+                print ("Please enter a valid number")
+        except ValueError:
+                print ("Please enter a valid number")
+
+    print ('You have booked the', (car_list[car-1]))
+
+    ask_name = True
+
+    print ("What is your name?")
+    while ask_name == True:
+        try:
+            name = input()
+            if name.isalpha():
+                print (f"Thank you {name}")
+                booking.append(name)
+                ask_name = False
+            else:
+                print ("Invalid name, please enter a valid name")
+        except ValueError:
+                print ("Invalid name, Please enter a valid name")
 
 
-print ("The available cars:")
-for i in range(len(car_list)):
-    print (f"{i+1}.  {car_list[i]}")
+summary_list.append(booking)
+print(summary)
+booking=[]
 
-print ("Which car would you like to borrow? ")
-while ask_car == True:
-    try:
-        car = int(input())
-        if car > 9 or car < 1:
-            print ("Please enter a valid number")
-        elif car > 0 and car < 10:
-            ask_car = False
-        else:
-            print ("Please enter a valid number")
-    except ValueError:
-            print ("Please enter a valid number")
-
-print ('You have booked the', (car_list[car-1]))
-
-
-    
-
-number = random.randint(0, (len(name_list)))
-winner = name_list[number]
-
-
-print ("Daily ")
-#Prints who wins the raffle
-print (f"And the winner of the {prize}, valued at ${value}, is...... {winner}")
+print ("Daily Summary:")
 
 
 
