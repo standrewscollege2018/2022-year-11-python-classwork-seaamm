@@ -16,15 +16,15 @@ availability_list = ['Available', 'Available', 'Available', 'Available', 'Availa
 
 summary_list = []
 booking = []
-print("Type '0' in the car number input when you have finished borrowing cars")
 
 print ("Welcome to the car rental program")
+print("Type '0' in the car number input when you have finished borrowing cars")
 
 rental_program = True
 
 while rental_program == True:
     ask_car = True
-
+    
     print ("The available cars:")
     for i in range(len(car_list)):
         print (f"{i+1}.  {car_list[i]}")
@@ -34,45 +34,42 @@ while rental_program == True:
         try:
             car = int(input())
             if car == 0:
-                print ("Daily summary:")
-                print (summary_list)
                 ask_car = False
+                rental_program = False
+                ask_name = False
+                print ("Daily Summary:")
+                if len (booking) == 0:
+                    print ("There were no cars borrowed today")
+                    rental_program = False
+                else:
+                    summary_list.append(booking)
+                    print(summary_list)
+                    print (booking)
             elif car > 9 or car < 0:
                 print ("Please enter a valid number")
             elif car > 0 and car < 10:
-                ask_car = False
                 print ("Thank you")
-                
+                print ('You have booked the', (car_list[car-1]))
                 booking.append(car_list[car-1])
                 del car_list[car-1]
+                ask_name = True
+                while rental_program == True:
+                    print ("What is your name: ")
+                    while ask_name == True:
+                        try:
+                            name = input()
+                            if name.isalpha():
+                                print (f"Thank you {name}")
+                                booking.append(name)
+                                ask_name = False
+                            else:
+                                print ("Invalid name, please enter a valid name")
+                        except ValueError:
+                                print ("Invalid name, Please enter a valid name")
             else:
                 print ("Please enter a valid number")
         except ValueError:
                 print ("Please enter a valid number")
-
-    print ('You have booked the', (car_list[car-1]))
-
-    ask_name = True
-
-    print ("What is your name?")
-    while ask_name == True:
-        try:
-            name = input()
-            if name.isalpha():
-                print (f"Thank you {name}")
-                booking.append(name)
-                ask_name = False
-            else:
-                print ("Invalid name, please enter a valid name")
-        except ValueError:
-                print ("Invalid name, Please enter a valid name")
-
-
-summary_list.append(booking)
-print(summary)
-booking=[]
-
-print ("Daily Summary:")
 
 
 
