@@ -12,8 +12,8 @@ car_list = ['Suzuki Van',
 
 seat_list = ['2 seats', '4 seats', '4 seats', '4 seats', '4 seats', '4 seats', '7 seats', '12 seats', '12 seats']
 
-summary_list = []
-booking = []
+booked_car_list = []
+name_list = []
 
 print ("Welcome to the car rental program")
 print("Type '0' in the car number input when you have finished borrowing cars")
@@ -42,19 +42,18 @@ while rental_program == True:
                     rental_program = False
                     ask_name = False
                     print ("Daily Summary:")
-                    if len (booking) == 0:
+                    if len(name_list) == 0:
                         print ("There were no cars rented today")
                         rental_program = False
                     else:
-                        summary_list.append(booking)
-                        for i in range(len(summary_list)):
-                            print (booking)
+                        for i in range(len(name_list)):
+                            print (f"Car: {booked_car_list[i]} Name: {name_list[i]}")
                 elif car > 9 or car < 0:
                     print ("Please enter a valid number")
                 elif car > 0 and car < 10:
                     print ("Thank you")
                     print ('You have booked the', (car_list[car-1]))
-                    booking.append(car_list[car-1])
+                    booked_car_list.append(car_list[car-1])
                     del car_list[car-1]
                     ask_car = False
                     ask_name = True
@@ -69,7 +68,7 @@ while rental_program == True:
                 name = input()
                 if name.isalpha():
                     print (f"Thank you {name}")
-                    booking.append(name)
+                    name_list.append(name)
                     ask_name = False
                 else:
                     print ("Invalid name, please enter a valid name")
