@@ -1,5 +1,6 @@
 '''Rental Car Program'''
 
+#Making lists for the cars, and the seats in the cars/vehicles.
 car_list = ['Suzuki Van',
             'Toyota Corolla',
             'Honda CRV',
@@ -12,12 +13,15 @@ car_list = ['Suzuki Van',
 
 seat_list = ['2 seats', '4 seats', '4 seats', '4 seats', '4 seats', '4 seats', '7 seats', '12 seats', '12 seats']
 
+#Making empty lists of the booked cars and names to input cars/names into.
 booked_car_list = []
 name_list = []
 
+#Prints welcome/what to do.
 print ("Welcome to the car rental program")
 print("Type '0' in the car number input when you have finished borrowing cars")
 
+#Setting the loop rental program to true so to repeat the whole code until a '0' is entered.
 rental_program = True
 
 while rental_program == True:
@@ -26,7 +30,6 @@ while rental_program == True:
         ask_car = False
         print ("There are no more cars left to rent.")
         print ("Daily Summary")
-        print (booking)
     else:
         ask_car = True
         print ("The available cars:")
@@ -34,9 +37,10 @@ while rental_program == True:
             print (f"{i+1}.  {car_list[i]} - {seat_list[i]}")
 
         while ask_car == True:
-            print ("Which car would you like to borrow? ")
+            print ("Which car would you like to rent? ")
             try:
                 car = int(input())
+#If the car input is 0, it will print the daily summary etc, and if there were no cars rented in the day, it will say "there were no cars rented today".
                 if car == 0:
                     ask_car = False
                     rental_program = False
@@ -61,7 +65,7 @@ while rental_program == True:
                     print ("Please enter a valid number")
             except ValueError:
                     print ("Please enter a valid number")
-
+#Asks for input of name, catches error for any characters that are not alphabetic, or other.
         while ask_name == True:
             print ("What is your name: ")
             try:
