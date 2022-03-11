@@ -35,7 +35,6 @@ while rental_program == True:
         print ("The available cars:")
         for i in range(len(car_list)):
             print (f"{i+1}.  {car_list[i]} - {seat_list[i]}")
-
         while ask_car == True:
             print ("Which car would you like to rent? ")
             try:
@@ -51,7 +50,7 @@ while rental_program == True:
                         rental_program = False
                     else:
                         for i in range(len(name_list)):
-                            print (f"Car: {booked_car_list[i]} Name: {name_list[i]}")
+                            print (f"Car: {booked_car_list[i]} | Name: {name_list[i]}.")
                 elif car > 9 or car < 0:
                     print ("Please enter a valid number")
                 elif car > 0 and car < 10:
