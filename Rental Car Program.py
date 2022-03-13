@@ -30,6 +30,8 @@ while rental_program == True:
         ask_car = False
         print ("There are no more cars left to rent.")
         print ("Daily Summary")
+        for i in range(len(name_list)):
+            print (f"Car: {booked_car_list[i]} | Name: {name_list[i]}.")
     else:
         ask_car = True
         print ("The available cars:")
